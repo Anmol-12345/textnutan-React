@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/textnutan-React/static/css/main.8e09d8d9.css",
+    "main.js": "/textnutan-React/static/js/main.7bfce1e1.js",
+    "static/js/453.96453769.chunk.js": "/textnutan-React/static/js/453.96453769.chunk.js",
+    "index.html": "/textnutan-React/index.html",
+    "main.8e09d8d9.css.map": "/textnutan-React/static/css/main.8e09d8d9.css.map",
+    "main.7bfce1e1.js.map": "/textnutan-React/static/js/main.7bfce1e1.js.map",
+    "453.96453769.chunk.js.map": "/textnutan-React/static/js/453.96453769.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e09d8d9.css",
+    "static/js/main.7bfce1e1.js"
+  ]
+}
