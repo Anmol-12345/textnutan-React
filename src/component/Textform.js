@@ -20,6 +20,7 @@ export default function Textform(props) {
       var text = document.getElementById("myBox")
       text.select();
       navigator.clipboard.writeText(text.value);
+      document.getSelection().removeAllRanges();
       props.showAlert("Copy the Complete text!","success");
      }
 
@@ -46,29 +47,30 @@ export default function Textform(props) {
   return ( 
     <> 
     <div className='container' style={{color:props.mode==='dark'?'white':'#042743'}}>
-    <h1>{props.heading}</h1>
+    <h1 className='mb-2'>{props.heading}</h1>
     <div className="mb-3">
-
-    <textarea className="form-control" value={text} onChange={Upper} style={{backgroundColor:props.mode==='dark'?'grey':'white',
+    <textarea className="form-control" value={text} onChange={Upper} style={{backgroundColor:props.mode==='dark'?'#13466e':'white',
     color: props.mode==='dark'?'white':'#042743'
     }} id="myBox" rows="8"></textarea>
-
 </div>
- <button className="btn btn-primary mx-2" onClick={UpperCase}>Convert to uppercase </button>
-  <button className="btn btn-primary mx-2" onClick={LowerCase}>Convert to Lowercase </button>
-  <button className="btn btn-primary mx-2" onClick={ClearText}>Clear </button>
-  <button className="btn btn-primary mx-2" onClick={CopyText}>Copy</button>
-  <button className="btn btn-primary mx-2" onClick={removespace}>Remove Space</button>
+ <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={UpperCase}>Convert to uppercase </button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={LowerCase}>Convert to Lowercase </button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={ClearText}>Clear </button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={CopyText}>Copy</button>
+  <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={removespace}>Remove Space</button>
     </div>
 
     <div className="container my-3"style={{color:props.mode==='dark'?'white':'#042743'}}>
+
       <h2>Hii this is my first text</h2>
-      <p>{text.split(" ").length}words and {text.length}character's</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length}
+      words and {text.length}character's</p>
       {/*ek word ko read karne mai 0.008 time lagta hai*/}
-      <p>{0.008 * text.split(" ").length} Minutes read</p>
+      <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
       <h1>Preview</h1>
       <p>{text.length>0?text:"Enter something to preview it Here"}</p>
       </div>
     </>
   ) 
 } 
+
